@@ -31,7 +31,9 @@ function forceLogin (keycloak, request, response) {
   }
 
   let uuid = UUID();
-  let loginURL = keycloak.loginUrl(uuid, redirectUrl);
+  let actLoginURL = encodeUrl(keycloak.loginUrl(uuid, redirectUrl));
+  let loginURL = protocol + '://' + host + (port === '' ? '' : ':' + port) +
+        '/jclogin?actualURL=' + actLoginURL;
   response.redirect(loginURL);
 }
 
