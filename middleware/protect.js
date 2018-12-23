@@ -16,6 +16,7 @@
 'use strict';
 
 const UUID = require('./../uuid');
+var encodeUrl = require('encodeurl');
 
 function forceLogin (keycloak, request, response) {
   let host = request.hostname;
